@@ -1,0 +1,70 @@
+.form{
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    &-group{
+        $height-input: 3.8rem;
+        
+        transition: all .3s;
+        position: relative;
+
+        // input
+        &__input{
+            position: relative;
+            display: block;
+            font-size: 1.4rem;
+            font-weight: 400;
+            outline: none;
+            border: none;
+            height: $height-input;
+            width: 43rem;
+            padding: 4px 14px;
+            font-family: inherit;
+            opacity: .7;
+            color: $color-black;
+            border-radius: 2px;
+
+            &:focus{
+                border-bottom: 2px solid $color-dark;
+                box-shadow: 0 3px 10px rgba($color-black, .2);
+
+                // Nếu input không hợp lệ ->xử lí ở backend
+                &:invalid{
+                    border-bottom: 2px solid red;
+                }
+            }
+
+            // set style text of placeholder input:
+            &::-webkit-input-placeholder{
+                color: $color-text;
+                font-family: inherit;
+            }
+        }
+
+        // title
+        &__title{
+            transition: all .3s;
+            font-size: 1.0rem;
+            font-family: inherit;
+            display: inline-block;
+            color: rgba($color-black, .7);
+            margin: 0rem 0 0 1.4rem;
+            opacity: 1;
+            transform: translateY(4px);
+        }
+
+        // khi còn placeholder text
+        &__input:placeholder-shown + &__title{
+            opacity: 0;
+            transform: translateY(-3rem);
+        }
+
+        // margin
+        &:not(:last-child){
+            margin-bottom: 1rem;
+        }
+    }
+
+
+}

@@ -1,0 +1,62 @@
+.btn-radio{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-right: 3rem;
+    position: relative;
+    transform: all 3s;
+    &__input{
+        $size-btn: 1.8rem;
+
+        /* Add if not using autoprefixer */
+        -webkit-appearance: none;
+        appearance: none;
+        /* For iOS < 15 to remove gradient background */
+        background-color: transparent;
+
+        width: $size-btn;
+        height: $size-btn;
+        border: 2px solid $color-dark;
+        border-radius: 10rem;
+        position: relative;
+        cursor: pointer;
+        transform: translateY(-2.2px);
+        transform: all .3s;
+        &::before{
+            content: "";
+            display: block;
+            width: calc($size-btn - 0.95rem);
+            height: calc($size-btn - 0.95rem);
+            // border: 2px solid $color-dark;
+            border-radius: 10rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $color-dark;
+            display: none;
+            transform: all 3s;
+        }
+
+        &:checked::before{
+            transform: all 3s;
+            display: inline-block;
+        }
+    }
+
+    &__btn{
+        cursor: pointer;
+        user-select: none;
+        margin-left: .8rem;
+        transform: all 3s;
+        
+        &-text{
+            display: inline-block;
+            font-size: 1.4rem;
+            line-height: 1.4rem;
+            transform: all 3s;
+        }
+    }
+    
+}

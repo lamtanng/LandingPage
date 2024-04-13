@@ -1,0 +1,44 @@
+// Abstracts
+@import './Abstracts/variables';
+@import './Abstracts/mixin';
+
+// Base
+@import './Base/animations';
+@import './Base/base';
+@import './Base/typography';
+@import './Base/utilities';
+
+// Layouts//
+@import './Layout/header';
+@import './Layout/grid';
+
+// Components
+@import './Components/button';
+@import './Components/composition';
+@import './Components/skill-box';
+@import './Components/card';
+@import './Components/testimonial';
+@import './Components/back-video';
+@import './Components/enroll';
+@import './Components/form';
+@import './Components/radio-btn';
+@import './Components/footer';
+@import './Components/popup';
+@import './Components/navigation';
+
+
+//   Pages
+@import './Pages/home';
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+ 

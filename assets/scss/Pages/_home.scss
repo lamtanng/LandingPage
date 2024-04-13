@@ -1,0 +1,64 @@
+.landing-page{
+    overflow: hidden;
+
+    .section-about{
+        background-color: $color-grey-light-1;
+        padding: 18rem;
+        margin-top: -18rem;
+    }
+    
+    .section-skill{
+        background-color: $color-grey-light-1;
+        padding: 18rem;
+        margin-top: -14rem;
+        
+        background:
+                    linear-gradient(to bottom,
+                                    rgba($color-light, 1),
+                                    rgba($color-medium, 0.8),
+                                    rgba($color-dark, 0.9)),
+                    url('../img/background1.jpg');
+        clip-path: ellipse(66% 45% at 50% 50%);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+    }
+    
+    .section-course{
+        background-color: $color-grey-light-1;
+        padding: 18rem 18rem 10rem;
+        margin-top: -14rem;
+    }
+    
+    .section-testimonials{
+        position: relative;
+        padding: 10rem 0;
+    }
+    
+    .section-enroll{
+        padding: 10rem 0;
+        background-image: 
+                        linear-gradient(to bottom,
+                            rgba($color-light, 1),
+                            rgba($color-medium, 0.8),
+                            rgba($color-dark, 0.9)),;
+        
+        .form-heading{
+            margin-left: .8rem;
+        }
+    }
+    
+    .footer{
+        background-color: $color-bg-dark;
+        padding: 8rem 0;
+    }
+    
+    .section-popup{
+        position: fixed;
+        top: 0; 
+        left: 0; 
+        width: 100%;
+        height: 100vh;
+
+    }
+}

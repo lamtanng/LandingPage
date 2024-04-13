@@ -1,0 +1,34 @@
+// Text gradient to right
+@mixin text-gradient ($color-left, $color-right){
+    background-image: linear-gradient(to right, $color-left, $color-right);
+    color: transparent;
+    -webkit-background-clip: text;
+}
+
+// btn-color
+@mixin btn-color ($color){
+    background-color: $color;
+
+    &::before{
+        display: inline-block;
+        content: "";
+        background-color: transparent;
+        border-radius: 200px;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all .3s;
+        background-color: $color;
+        z-index: -1;
+    }
+}
+
+// center
+@mixin element-center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,47 @@
+html{
+    font-size: 62.5%; /*<==>font-size: 10px ==> dễ điều chỉnh các font-size khác*/
+    line-height: 1.6rem /*== 16px*/;
+    font-family: 'Roboto', sans-serif;
+}
+
+.heading-secondary{
+    font: {
+        size: 2.4rem;
+        weight: 700;
+    }
+    text-transform: uppercase;
+    padding: 4px 0;
+    display: inline-block;
+    letter-spacing: 1.0rem;
+    // cursor: pointer;
+    -webkit-user-select: none;
+
+    @include text-gradient($color-light, $color-dark);
+
+    transition: all .1s linear;
+    &:hover{
+        transform-origin: center;
+        transform: translateY(-6px) scale(1.2);
+        text-shadow: 5px 6px 8px rgba($color-black, .15);
+    }
+}
+
+.heading-tertiary{
+    display: inline-block;
+    font: {
+        size: 1.5rem;
+        weight: 500;
+    }
+    text-transform: uppercase;
+    color: $color-text;
+}
+
+.paragraph{
+    font: {
+        size: 1.2rem;
+        weight: 300;
+    }
+    color: rgba($color-text, $alpha: .8);
+    text-align: justify;
+    margin-bottom: 2.4rem;
+}

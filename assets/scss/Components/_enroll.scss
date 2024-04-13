@@ -1,0 +1,23 @@
+.enroll{
+    width: 90rem;
+    height: 40rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 3rem;
+    background-image:
+                radial-gradient(
+                    105% 172% ellipse at 10% 50%,  
+                    rgba($color-white,.8) 50%,
+                    rgba($color-white,.001) 50%),
+                url('../img/background1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    box-shadow: 0 .8rem 2rem rgba($color-black, .2);
+    margin: 0 auto;
+    padding: 4rem;
+    transition: all .3s;
+    
+    &:hover{
+        transform: translateY(-.4rem);
+    }
+}
