@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "sass assets/scss/main.scss assets/css/main.css -w"
+    "build:sass": "sass assets/scss/main.scss assets/css/main.css -w"
   },
   "author": "",
   "license": "ISC",
