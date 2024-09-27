@@ -17,6 +17,7 @@
     &__checkbox:checked ~ &__button &__button-icon--close{
         opacity: 1;
         transform: scale(1);
+        ;
     }
     
     &__checkbox:checked ~ &__button &__button-icon--open{

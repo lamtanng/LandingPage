@@ -1,192 +1,183 @@
-.card{
-    position: relative;
-    width: 26rem;
-    height: 36rem;
-    margin: 0 auto;
-    perspective: 150rem; /*3D effect*/
-    user-select: none;
-    -webkit-user-select: none;
-    &__side{
-        position: absolute;
-        top: 0;
-        left: 0;
-        color: $color-white;
-        font-size: 1.8rem;
-        height: 100%;
+.card {
+  position: relative;
+  width: 26rem;
+  height: 36rem;
+  margin: 0 auto;
+  perspective: 150rem; /*3D effect*/
+  user-select: none;
+  -webkit-user-select: none;
+  background-color: transparent;
+  border: 0;
+  &__side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: $color-white;
+    font-size: 1.8rem;
+    height: 100%;
+    width: 100%;
+    border-radius: 3rem;
+    overflow: hidden;
+    backface-visibility: hidden; /*ẩn mặt sau của thẻ*/
+    transition: all 0.8s ease;
+    box-shadow: 0 0.4rem 4rem 0.2rem rgba($color-black, 0.1);
+
+    &--front {
+      background-color: $color-white;
+      z-index: 1;
+    }
+
+    &--back {
+      background-color: green;
+      rotate: 0 1 0 180deg; /*rotate: x y z deg*/
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+
+      &-2 {
+        background-image: linear-gradient(to right bottom, $color-light, $color-dark);
+      }
+
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(180deg);
+    z-index: 1;
+  }
+
+  .card__cta {
+    height: 100%;
+    padding: 8rem 0 10rem;
+  }
+
+  .card__price {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-basis: content;
+    // justify-content: space-between;
+    align-items: center;
+    font-weight: 300;
+    height: 100%;
+    // margin: 100px 0;
+    &-title {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    &-value {
+      font-size: 4.6rem;
+      justify-self: flex-end;
+      margin-bottom: 3.4rem;
+    }
+  }
+
+  // picture
+  &__picture {
+    background-blend-mode: screen; /*blend mode cho img*/
+    background-size: contain;
+    background-position: center;
+    height: 20rem;
+    clip-path: ellipse(69% 75% at 49% 18%);
+
+    &--1 {
+      background-image: linear-gradient(to right, $color-secondary-light, $color-secondary-dark),
+        url('../img/img-card-1.jpg');
+    }
+    &--2 {
+      background-image: linear-gradient(to right, $color-light, $color-dark),
+        url('../img/img-card-2.jpg');
+    }
+    &--3 {
+      background-image: linear-gradient(to right, $color-tertiary-light, $color-tertiary-dark),
+        url('../img/img-card-3.jpg');
+    }
+  }
+
+  // heading
+  &__heading {
+    position: absolute;
+    top: 28%;
+    right: 10px;
+    font: {
+      size: 1.8rem;
+      weight: 300;
+    }
+    text-align: end;
+    text-transform: uppercase;
+    color: $color-white;
+    line-height: 3rem;
+
+    &-text {
+      border-radius: 2rem;
+      padding: 0.5rem 1rem;
+
+      // giúp chống phân mảnh các thành phần của 1 thẻ nào đó(lí do phân mảnh là sử dụng </br> ở phần html)
+      -webkit-box-decoration-break: clone;
+
+      &--1 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-secondary-light, 0.8),
+          rgba($color-secondary-dark, 0.8)
+        );
+      }
+
+      &--2 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-light, 0.8),
+          rgba($color-dark, 0.8)
+        );
+      }
+
+      &--3 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-tertiary-light, 0.8),
+          rgba($color-tertiary-dark, 0.8)
+        );
+      }
+    }
+  }
+
+  // details
+  &__details {
+    color: $color-text;
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-align: center;
+    margin: 1rem auto;
+    width: 50%;
+
+    ul {
+      list-style: none;
+      width: 100%;
+      li {
         width: 100%;
-        border-radius: 3.0rem;
-        overflow: hidden;
-        backface-visibility: hidden; /*ẩn mặt sau của thẻ*/
-        transition: all .8s ease;
-        box-shadow: 0 .4rem 4rem .2rem rgba($color-black, .1);
-        
-        &--front{
-            background-color: $color-white;
-            z-index: 1;
+        padding: 1rem 0;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid rgba($color-black, 0.1);
         }
-        
-        &--back{
-            background-color: green;
-            rotate: 0 1 0 180deg ; /*rotate: x y z deg*/
-
-            &-1{
-                background-image: linear-gradient(to right bottom,
-                                $color-secondary-light,
-                                $color-secondary-dark);  
-            }
-
-            &-2{
-                background-image: linear-gradient(to right bottom,
-                                $color-light,
-                                $color-dark);  
-            }
-
-            &-3{
-                background-image: linear-gradient(to right bottom,
-                                $color-tertiary-light,
-                                $color-tertiary-dark);  
-            }
-        }
-
+      }
     }
-
-    &:hover &__side--front {
-        transform: rotateY(180deg);
-    }
-
-    &:hover &__side--back {
-        transform: rotateY(180deg);
-        z-index: 1;
-    }
-    
-    .card__cta{
-        height: 100%;
-        padding: 8rem 0 10rem;
-    }
-    
-    .card__price{
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        flex-basis: content;
-        // justify-content: space-between;
-        align-items: center;
-        font-weight: 300;
-        height: 100%;
-        // margin: 100px 0; 
-        &-title{
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        
-        &-value{
-            font-size: 4.6rem;
-            justify-self: flex-end;
-            margin-bottom: 3.4rem;
-        }
-    }
-
-    // picture
-    &__picture{
-        background-blend-mode: screen; /*blend mode cho img*/
-        background-size: contain;
-        background-position: center;
-        height: 20rem;
-        clip-path: ellipse(69% 75% at 49% 18%);
-
-        &--1{
-            background-image: 
-                linear-gradient(
-                                to right,
-                                $color-secondary-light,
-                                $color-secondary-dark),
-                url('../img/img-card-1.jpg');
-                                ;
-        }
-        &--2{
-            background-image: 
-                linear-gradient(
-                                to right,
-                                $color-light,
-                                $color-dark),
-                url('../img/img-card-2.jpg');
-                                ;
-        }
-        &--3{
-            background-image: 
-                linear-gradient(
-                                to right,
-                                $color-tertiary-light,
-                                $color-tertiary-dark),
-                url('../img/img-card-3.jpg');
-                                ;
-        }
-    }
-
-    // heading
-    &__heading{
-        position: absolute;
-        top: 28%;
-        right: 10px;
-        font: {
-            size: 1.8rem;
-            weight: 300;
-        }
-        text-align: end;
-        text-transform: uppercase;
-        color: $color-white;
-        line-height: 3rem;
-
-        &-text{
-            border-radius: 2rem;
-            padding: .5rem 1rem;
-
-            // giúp chống phân mảnh các thành phần của 1 thẻ nào đó(lí do phân mảnh là sử dụng </br> ở phần html)
-            -webkit-box-decoration-break: clone; 
-
-            &--1{
-                background-image: linear-gradient(
-                    to right bottom, 
-                    rgba($color-secondary-light, .8), 
-                    rgba($color-secondary-dark, .8));
-            }
-
-            &--2{
-                background-image: linear-gradient(
-                    to right bottom, 
-                    rgba($color-light, .8), 
-                    rgba($color-dark, .8));
-            }
-
-            &--3{
-                background-image: linear-gradient(
-                    to right bottom, 
-                    rgba($color-tertiary-light, .8), 
-                    rgba($color-tertiary-dark, .8));
-            }
-        }
-    }
-
-    // details
-    &__details{
-        color: $color-text;
-        font-size: 1.4rem;
-        font-weight: 300;
-        text-align: center;
-        margin: 1rem auto;
-        width: 50%;
-
-        ul{
-            list-style: none;
-            width: 100%;
-            li{
-                width: 100%;
-                padding: 1.0rem 0;
-    
-                &:not(:last-child){
-                    border-bottom: 1px solid rgba($color-black, .1);
-                }
-            }
-        }
-    }
+  }
 }
